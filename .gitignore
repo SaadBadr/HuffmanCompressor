@@ -35,3 +35,13 @@
 *.t
 *.bin
 *.txt
+
+# Visual Studio Files
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.pdb
+*.tlog
+*.log
+*.lastbuildstate
