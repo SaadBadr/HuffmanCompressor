@@ -38,8 +38,8 @@
 
 # Visual Studio Files
 *.vcxproj
-*.vcxproj.filters
-*.vcxproj.user
+*filters
+*.user
 *.sln
 *.pdb
 *.tlog
