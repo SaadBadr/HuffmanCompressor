@@ -1,13 +1,17 @@
 #include <iostream>
 #include "Huffman.h"
 #include "IO.h"
-#define filename "enwik8.t"
 
+#define original_filename "enwik8.t"
+#define decoded_filename "decoded.t"
+#define encoded_filename "encoded.bin"
 
 void encode() {
 
+	startTime();
+
 	cout << "ENCODING STARTED\n";
-	string text = readString(filename);
+	string text = readString(original_filename);
 	map<unsigned char, string> dictionary;
 	vector < Node* > heap;
 	ofstream out("encoded.bin", ios_base::binary);
@@ -38,6 +42,9 @@ void encode() {
 
 	writeStringA(out, text);
 	out.close();
+	
+	endTime();
+	printDuaration("Encoding");
 
 }
 
@@ -45,7 +52,7 @@ void encode() {
 void readEncodedData(string &text, vector<Node*> &heap) {
 
 
-	ifstream in("encoded.bin", ios_base::binary);
+	ifstream in(encoded_filename, ios_base::binary);
 
 	vector <unsigned char> c;
 	readVector(in, c);
@@ -74,6 +81,9 @@ void readEncodedData(string &text, vector<Node*> &heap) {
 
 
 void decode() {
+
+	startTime();
+
 	cout << "DECODING STARTED\n";
 	string text;
 	vector <Node*> heap;
@@ -84,30 +94,60 @@ void decode() {
 	string BitsString;
 	stringToBits(text, BitsString);
 	huffmanDecode(root, BitsString, text);
-	writeStringB("decoded", text);
+	writeStringB(decoded_filename, text);
+
+	endTime();
+	printDuaration("Decoding");
+
 }
 
 
 
 int main() {
 	
-	startTime();
+	cout << "****INSTRUCTIONS:" << endl;
+	cout << "-Encoding: please make sure that the file " << original_filename << " is placed in the same directory with the program." << endl;
+	cout << "-Decoding: please make sure that the file " << encoded_filename << " is placed in the same directory with the program." << endl;
+
+	cout << endl << endl;
+
 	
-	encode();
+	signed short option;
+
+	cout << "Please choose required operation:" << endl;
+	cout << " 1. Encode " << original_filename << endl;
+	cout << " 2. Decode " << encoded_filename << endl;
+	cout << " 3. Encode " << original_filename << " then Decode " << encoded_filename << endl;
+
+	cin >> option;
+
+
+	if (option != 2)
+		encode();
 	
-	endTime();
-	printDuaration("Encoding");
-	
-	startTime();
-	
-	decode();
-	
-	endTime();
-	printDuaration("Decoding");
-	
-	if (IsIdentical(filename, "decoded"))
-		cout << "SUCCESS, the two files are identical";
-	else
-		cout << "FAILURE, the two files are not identical";
+	if (option != 1)
+		decode();
+
+
+
+	if (option != 2)
+		printCompressionRatio(original_filename, encoded_filename);
+
+	if (option != 1)
+	{
+		char y = 'y';
+		cout << "Do you want to run a test checking that the decoded file and the original file are the same? (y/n)" << endl;
+
+		cin >> y;
+
+		if(y == 'y')
+		
+		if (IsIdentical(original_filename, decoded_filename))
+			cout << "SUCCESS, the two files are identical\n";
+		else
+			cout << "FAILURE, the two files are not identical\n";
+	}
+
+
 	return 0;
 }

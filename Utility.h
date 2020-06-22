@@ -118,3 +118,15 @@ bool IsIdentical(string firstFileName, string secondFileName) {
 	return readString(firstFileName).compare(readString(secondFileName)) == 0;
 }
 
+int getFileSize(string f) {
+	ifstream file(f, ios::binary | ios::ate);
+	int in = file.tellg();
+	file.close();
+	return in;
+}
+
+void printCompressionRatio(string input, string output) {
+
+	cout << "Compression Ratio: " << getFileSize(input) / (float) getFileSize (output) << "\n";
+
+}
