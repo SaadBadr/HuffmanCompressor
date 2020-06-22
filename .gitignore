@@ -38,7 +38,7 @@
 
 # Visual Studio Files
 *.vcxproj
-*filters
+*.filters
 *.user
 *.sln
 *.pdb
