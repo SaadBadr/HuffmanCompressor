@@ -53,6 +53,7 @@ void stringFreqCalculator(string& text, vector < Node* >& v) {
 		
 }
 
+/// Bits Manipulation Functions
 
 void bitsToString(string& bits, string& str) {
 
@@ -96,6 +97,7 @@ void stringToBits(string & str, string & bits) {
 
 }
 
+/// Time Functions
 
 chrono::steady_clock::time_point timeBegin;
 chrono::steady_clock::time_point timeEnd;
@@ -114,6 +116,9 @@ void printDuaration(string operation) {
 }
 
 
+
+/// Testing Functions
+
 bool IsIdentical(string firstFileName, string secondFileName) {
 	return readString(firstFileName).compare(readString(secondFileName)) == 0;
 }
@@ -125,8 +130,7 @@ int getFileSize(string f) {
 	return in;
 }
 
-void printCompressionRatio(string input, string output) {
+float CompressionRatio(string input, string output) {
 
-	cout << "Compression Ratio: " << getFileSize(input) / (float) getFileSize (output) << "\n";
-
+	return getFileSize(input) / (float) getFileSize (output);
 }

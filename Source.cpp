@@ -63,8 +63,7 @@ void readEncodedData(string &text, vector<Node*> &heap) {
 
 	vector<unsigned char> temp;
 	readVector(in, temp);
-	string t(temp.begin(), temp.end());
-	text = t;
+	text.assign(temp.begin(), temp.end());
 
 	in.close();
 
@@ -134,7 +133,7 @@ int main() {
 
 
 	if (option != 2)
-		printCompressionRatio(original_filename, encoded_filename);
+		cout << "Compression Ratio: " << CompressionRatio(original_filename, encoded_filename) << endl;
 
 	if (option != 1)
 	{

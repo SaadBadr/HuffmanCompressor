@@ -1,8 +1,9 @@
 #pragma once
-#include <algorithm>
 #include <map>
 #include "Utility.h"
 #include <queue>
+
+
 
 void getHuffmanCodes(Node* root, map <unsigned char, string> &dictionary, string code="") {
 	
@@ -18,9 +19,6 @@ void getHuffmanCodes(Node* root, map <unsigned char, string> &dictionary, string
 
 	return;
 }
-
-
-
 
 
 Node* makeHuffmanHeap(vector < Node* > &v) {
@@ -82,17 +80,6 @@ void huffmanEncode(map <unsigned char, string>& dictionary, string& encoded) {
 	bitsToString(tmp, encoded);
 }
 
-void deleteHuffmanHeap(Node* root) {
-
-	if (root->left)
-		deleteHuffmanHeap(root->left);
-
-	if (root->right)
-		deleteHuffmanHeap(root->right);
-
-	delete root;
-}
-
 void huffmanDecode(Node* root, string& encoded, string& decoded) {
 	Node* tmp = root;
 	string::iterator itr = encoded.begin();
@@ -124,3 +111,13 @@ void huffmanDecode(Node* root, string& encoded, string& decoded) {
 
 }
 
+void deleteHuffmanHeap(Node* root) {
+
+	if (root->left)
+		deleteHuffmanHeap(root->left);
+
+	if (root->right)
+		deleteHuffmanHeap(root->right);
+
+	delete root;
+}

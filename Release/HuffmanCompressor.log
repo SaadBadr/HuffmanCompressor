@@ -1,8 +1,8 @@
 ﻿  Source.cpp
-D:\work\HuffmanCompressor\HuffmanCompressor\Utility.h(123): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+D:\work\HuffmanCompressor\HuffmanCompressor\Utility.h(128): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
   Generating code
-  55 of 855 functions ( 6.4%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    12 functions had inline decision re-evaluated but remain unchanged
+  63 of 866 functions ( 7.3%) were compiled, the rest were copied from previous compilation.
+    59 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   HuffmanCompressor.vcxproj -> D:\work\HuffmanCompressor\Release\HuffmanCompressor.exe
