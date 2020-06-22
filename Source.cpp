@@ -145,9 +145,9 @@ int main() {
 		if(y == 'y')
 		
 		if (IsIdentical(original_filename, decoded_filename))
-			cout << "SUCCESS, the two files are identical\n";
+			cout << "SUCCESS, the two files are identical." << endl;
 		else
-			cout << "FAILURE, the two files are not identical\n";
+			cout << "FAILURE, the two files are not identical." << endl;
 	}
 
 

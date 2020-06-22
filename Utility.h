@@ -62,13 +62,13 @@ void bitsToString(string& bits, string& str) {
 
 	while (itr < bits.end() - 1) {
 		unsigned char tmp = ((unsigned char) * (itr) == '1')
-			+ ((unsigned char) * (itr + 1) == '1') * 2
-			+ ((unsigned char) * (itr + 2) == '1') * 4
-			+ ((unsigned char) * (itr + 3) == '1') * 8
-			+ ((unsigned char) * (itr + 4) == '1') * 16
-			+ ((unsigned char) * (itr + 5) == '1') * 32
-			+ ((unsigned char) * (itr + 6) == '1') * 64
-			+ ((unsigned char) * (itr + 7) == '1') * 128;
+			+ (((unsigned char) * (itr + 1) == '1') << 1)
+			+ (((unsigned char) * (itr + 2) == '1') << 2)
+			+ (((unsigned char) * (itr + 3) == '1') << 3)
+			+ (((unsigned char) * (itr + 4) == '1') << 4)
+			+ (((unsigned char) * (itr + 5) == '1') << 5)
+			+ (((unsigned char) * (itr + 6) == '1') << 6)
+			+ (((unsigned char) * (itr + 7) == '1') << 7);
 		str += tmp;
 		itr += 8;
 	}

@@ -86,13 +86,13 @@ void huffmanDecode(Node* root, string& encoded, string& decoded) {
 	decoded = "";
 	unsigned long addedBits = encoded.size() - 8;
 	unsigned char x = ((unsigned char) * (itr + addedBits) == '1')
-		+ ((unsigned char) * (itr + addedBits +1) == '1') * 2
-		+ ((unsigned char) * (itr + addedBits +2) == '1') * 4
-		+ ((unsigned char) * (itr + addedBits +3) == '1') * 8
-		+ ((unsigned char) * (itr + addedBits +4) == '1') * 16
-		+ ((unsigned char) * (itr + addedBits +5) == '1') * 32
-		+ ((unsigned char) * (itr + addedBits +6) == '1') * 64
-		+ ((unsigned char) * (itr + addedBits +7) == '1') * 128;
+		+ (((unsigned char) * (itr + addedBits +1) == '1') << 1 )
+		+ (((unsigned char) * (itr + addedBits +2) == '1') << 2 )
+		+ (((unsigned char) * (itr + addedBits +3) == '1') << 3 )
+		+ (((unsigned char) * (itr + addedBits +4) == '1') << 4 )
+		+ (((unsigned char) * (itr + addedBits +5) == '1') << 5 )
+		+ (((unsigned char) * (itr + addedBits +6) == '1') << 6 )
+		+ (((unsigned char) * (itr + addedBits +7) == '1') << 7 );
 
 	addedBits = x + 8;
 
