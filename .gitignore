@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+# Data Files For Testing
+*.t
+*.bin
+*.txt
