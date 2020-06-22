@@ -94,6 +94,9 @@ void decode() {
 	string BitsString;
 	stringToBits(text, BitsString);
 	huffmanDecode(root, BitsString, text);
+
+	deleteHuffmanHeap(root);
+
 	writeStringB(decoded_filename, text);
 
 	endTime();
